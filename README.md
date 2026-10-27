@@ -29,7 +29,7 @@ Google Colab with NVCC Compiler
 6. Copy output data from the device to the host and verify the results against the host's sequential vector addition. Free memory on the host and the device.
 
 ## PROGRAM:
-```
+```c
 %%cuda
 #include <stdio.h>
 #include <stdlib.h>
@@ -202,7 +202,7 @@ int main(int argc, char **argv)
     return(0);
 }
 ```
-```
+```c
 %%cuda
 #include <stdio.h>
 #include <stdlib.h>
@@ -375,7 +375,7 @@ int main(int argc, char **argv)
     return(0);
 }
 ```
-```
+```c
 %%cuda
 #include <stdio.h>
 #include <stdlib.h>
@@ -548,7 +548,7 @@ int main(int argc, char **argv)
     return(0);
 }
 ```
-```
+```c
 %%cuda
 #include <stdio.h>
 #include <stdlib.h>
@@ -723,7 +723,41 @@ int main(int argc, char **argv)
 ```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+/tmp/tmppf8qg6gf/eaa20f4d-b303-4e27-9d5c-b4e9d7c861bb/cuda_exec.out Starting...
+Using Device 0: Tesla T4
+Vector size 16777216
+initialData Time elapsed 0.690186 sec
+sumArraysOnHost Time elapsed 0.054030 sec
+sumArraysOnGPU <<<  65536, 256  >>>  Time elapsed 0.000908 sec
+Arrays match.
+
+
+/tmp/tmppf8qg6gf/4d959094-1fcc-42bf-9986-f5a9b1682179/cuda_exec.out Starting...
+Using Device 0: Tesla T4
+Vector size 16777216
+initialData Time elapsed 0.683172 sec
+sumArraysOnHost Time elapsed 0.052538 sec
+sumArraysOnGPU <<<  32768, 512  >>>  Time elapsed 0.000913 sec
+Arrays match.
+
+/tmp/tmppf8qg6gf/79a2f3b7-b377-4af2-af5e-0c41f5113ac4/cuda_exec.out Starting...
+Using Device 0: Tesla T4
+Vector size 16777216
+initialData Time elapsed 0.819671 sec
+sumArraysOnHost Time elapsed 0.053298 sec
+sumArraysOnGPU <<<  16401, 1023  >>>  Time elapsed 0.000959 sec
+Arrays match.
+
+/tmp/tmppf8qg6gf/4139b48c-c519-4e5c-9cac-a13083cf60bb/cuda_exec.out Starting...
+Using Device 0: Tesla T4
+Vector size 16777216
+initialData Time elapsed 0.675847 sec
+sumArraysOnHost Time elapsed 0.059892 sec
+sumArraysOnGPU <<<  16384, 1024  >>>  Time elapsed 0.000931 sec
+Arrays match.
 
 ## RESULT:
-Thus, Implementation of sum arrays on host and device is done in nvcc cuda using random number.
+Thus, implementation of sum of arrays on host and device using NVIDIA CUDA (NVCC) with random number initialization was successfully completed. The program was executed on an NVIDIA Tesla T4 GPU. The output arrays matched for all tested configurations. Configuration Blocks Threads per block GPU execution time 1 65,536 256 0.000918 sec 2 32,768 512 0.001829 sec 3 16,401 1,023 0.000973 sec 4 16,384 1,024 0.000922 sec
+
+Conclusion: The CUDA program successfully performed vector addition on both the host (CPU) and device (GPU). The result verification confirmed that the arrays matched for all four configurations.
+
